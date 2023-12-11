@@ -18,7 +18,7 @@ const displayUsers = (): void => {
     }
 }
 
-const findUserByUsername = (name: string) => {
+const findUserByUsername = (name: string): User | undefined => {
     return userList.find((user: User) => user.username == name)
 }
 
