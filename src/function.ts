@@ -1,7 +1,7 @@
-type CalculFn = (first: number, second: number) => number
+export type CalculFn = (first: number, second: number) => number
 
-let add: CalculFn
-let mul: CalculFn
+export let add: CalculFn
+export let mul: CalculFn
 
 add = (a: number, b: number): number => {
     return a + b
@@ -24,18 +24,13 @@ asyncMul((array) => {
 })
 
 
-function sub(a: number, b: number): number;
-function sub(a: number, b: number, c: number): number | never
-function sub(a: number, b: number, c?: number): number | never {
+export function sub(a: number, b: number): number;
+export function sub(a: number, b: number, c: number): number | never
+export function sub(a: number, b: number, c?: number): number | never {
     if (c && c >= 100) {
         throw 'Trop Haut'
     }
     return a - b 
 }
 
-try {
-    sub(1, 2, 100)
-}
-catch (err) {
-    console.log(err)
-}
+export default add

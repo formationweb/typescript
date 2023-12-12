@@ -1,3 +1,17 @@
+import myAdd, { sub, mul as myMul } from './function.js' // ESM
+import type { CalculFn } from './function.js'
+import axios from 'axios'
+
+myAdd(1, 2)
+sub(3, 2)
+
+axios.get('')
+
+let mul: CalculFn = (a: number, b: number): number => a / b
+
+mul(1, 2)
+myMul(5, 6)
+
 const age: number = 44
 const nom: string = 'ana'
 const isActive: boolean = true
@@ -113,9 +127,11 @@ type Point3D = Point & { z: number }
 type PositionTuple = [number, number]
 type City = 'paris' | 'lyon' | boolean | PositionTuple
 
-const point: Point = {
+const { x: myX, y: myY }: Point = {
     x: 0,
     y: 10
 }
+
+console.log(myX, myY)
 
 const position2: PositionTuple = [10, 34]
