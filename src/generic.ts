@@ -14,11 +14,6 @@ const concatStr: CalcFunction<string> = (a: string, b: string): string => {
     return a + b
 }
 
-type User = {
-    name: string
-    age: number
-    email: string
-}
 
 type UpdateFunction<T> = (obj: T, updateObj: Partial<T>) => T
 
@@ -82,3 +77,28 @@ class Pile<T> {
 
 const pile = new Pile<number>()
 pile.push(12, 'grgr')
+
+type User = {
+    name: string
+    age: number
+    email: string
+}
+
+/*
+type IsUser<T> = T extends User ? string : number
+
+const value: IsUser<Pile<number>> = 12
+*/
+
+type If<T extends boolean, U, V> = T extends true ? U : V
+
+type A = If<true, 'a', 'b'> // 'a'
+type B = If<false, 'a', 'b'> // 'b'
+
+type arr1 = ['a', 'b', 'c']
+type arr2 = [3, 2, 1]
+
+type First<T extends any[]> = T['length'] extends 0 ? never : T[0]
+
+type ArrayA = First<arr1> // a
+type ArrayNb = First<arr2> // 3
